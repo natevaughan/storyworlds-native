@@ -66,7 +66,7 @@ function Onboarding1Navigator() {
 
 const Onboarding2Stack = createStackNavigator<TabTwoParamList>();
 
-function Onboarding2nNavigator() {
+function Onboarding2Navigator() {
   return (
     <Onboarding2Stack.Navigator>
       <Onboarding2Stack.Screen
