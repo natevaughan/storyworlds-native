@@ -1,11 +1,7 @@
 import React, { FC } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-interface OnboardingProps {
-    navigation: any
-}
-
-const Onboarding1: FC<OnboardingProps> = () => {
+const Onboarding1: FC = () => {
     return (
         <View style={styles.container}>
             <View>

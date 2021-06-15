@@ -14,7 +14,7 @@ export default class ItemsScreen extends Component<ScreenProps, ItemsScreenState
     constructor(props: ScreenProps) {
         super(props);
         this.state = {
-            items: [{name: "No items yet"}]
+            items: [{name: "Loading..."}]
         };
     }
 

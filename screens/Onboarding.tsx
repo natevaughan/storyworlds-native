@@ -1,10 +1,11 @@
+import * as React from "react";
 import { FC } from "react";
 import Onboarding1 from "../components/Onboarding1";
 import Onboarding2 from "../components/Onboarding2";
 import Onboarding3 from "../components/Onboarding3";
-import Gallery from "../components/Gallery";
-import * as React from "react";
+import Swiper from 'react-native-swiper'
 import ScreenProps from "./ScreenProps";
+import { StyleSheet, View, Text } from "react-native";
 
 const Onboarding: FC<ScreenProps> = (props: ScreenProps) => {
     /**
@@ -29,10 +30,41 @@ const Onboarding: FC<ScreenProps> = (props: ScreenProps) => {
     ];
 
     return (
-        <Gallery
-            data={data}
-        />
+        <Swiper style={styles.wrapper} showsButtons={true}>
+            <Onboarding1 navigation={props.navigation} />
+            <Onboarding2 />
+            <Onboarding3 navigation={props.navigation} />
+        </Swiper>
     );
+
 }
+
+
+const styles = StyleSheet.create({
+    wrapper: {},
+    slide1: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#9DD6EB'
+    },
+    slide2: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#97CAE5'
+    },
+    slide3: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#92BBD9'
+    },
+    text: {
+        color: '#fff',
+        fontSize: 30,
+        fontWeight: 'bold'
+    }
+})
 
 export default Onboarding;
