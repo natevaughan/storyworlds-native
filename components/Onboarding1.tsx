@@ -1,8 +1,5 @@
-import React, { Component, FC } from 'react';
-import { StyleSheet } from 'react-native';
-import { View, Text, PanResponderGestureState } from 'react-native';
-import GestureRecognizer from 'react-native-swipe-gestures';
-import swipeDirections from 'react-native-swipe-gestures';
+import React, { FC } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
 interface OnboardingProps {
     navigation: any

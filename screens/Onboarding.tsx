@@ -4,8 +4,9 @@ import Onboarding2 from "../components/Onboarding2";
 import Onboarding3 from "../components/Onboarding3";
 import Gallery from "../components/Gallery";
 import * as React from "react";
+import ScreenProps from "./ScreenProps";
 
-const Onboarding: FC = ({navigation}) => {
+const Onboarding: FC<ScreenProps> = (props: ScreenProps) => {
     /**
      * Create an array with your screens' data - title, component and additional props.
      * Title is a string to be put inside of pill.
@@ -23,7 +24,7 @@ const Onboarding: FC = ({navigation}) => {
         },
         {
             component: Onboarding3,
-            props: {navigation: navigation}, // (optional) additional props
+            props: {navigation: props.navigation}, // (optional) additional props
         },
     ];
 
