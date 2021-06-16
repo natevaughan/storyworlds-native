@@ -5,8 +5,7 @@ const Onboarding1: FC = () => {
     return (
         <View style={styles.container}>
             <View>
-                <Text style={styles.title}>welcome to storyworlds</Text>
-                <Text style={styles.subtitle}>collaborative interactive fiction</Text>
+                <Text style={styles.title}>welcome</Text>
             </View>
             <View style={styles.info}>
                 <Text>play interactive, text-based stories</Text>

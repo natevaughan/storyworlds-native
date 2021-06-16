@@ -1,6 +1,7 @@
 import * as React from 'react';
+import { Component } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
-import { Component } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 interface Onboarding3Props {
   navigation: any
@@ -18,7 +19,13 @@ export default class Onboarding3 extends Component<Onboarding3Props> {
         <View style={styles.separator}/>
         <Button
             title="Go to Home"
-            onPress={() => this.props.navigation.navigate('Home')}
+            onPress={() => {
+              AsyncStorage.setItem('onboardingComplete', "1")
+                  .catch((err) => {
+                      console.log(err);
+                  })
+                this.props.navigation.navigate('Home')
+            }}
         />
       </View>
     );

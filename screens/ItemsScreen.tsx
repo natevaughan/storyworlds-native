@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Component, FC } from "react";
 import { db } from "../components/firebase/firebase";
-import { Button, View, Text, FlatList } from "react-native";
+import { Button, FlatList, Text, View } from "react-native";
 import TestItem from "../model/TestItem";
 import ScreenProps from "./ScreenProps";
 
