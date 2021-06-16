@@ -1,5 +1,5 @@
 // Firestore data converter
-import TestItem from "../../model/TestItem";
+import TestItem from "../../model/World";
 
 export const testItemConverter = {
     toFirestore: function(testItem: TestItem) {

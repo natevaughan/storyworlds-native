@@ -11,7 +11,7 @@ const Onboarding1: FC = () => {
                 <Text>play interactive, text-based stories</Text>
             </View>
             <View style={styles.playContainer}>
-                <Text style={styles.worldTitle}>Mars</Text>
+                <Text style={styles.playTitle}>Mars</Text>
                 <Text style={styles.play}>&gt; fly north</Text>
                 <Text style={styles.play}>You enter an asteroid belt</Text>
             </View>
@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 40,
         fontWeight: 'bold',
+        color: "#000000"
     },
     subtitle: {
         fontSize: 18,
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
     play: {
         color: "#ffffff"
     },
-    worldTitle: {
+    playTitle: {
         fontSize: 24,
         fontWeight: 'bold',
         textAlign: 'center',

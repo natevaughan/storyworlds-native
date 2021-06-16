@@ -8,7 +8,7 @@ export default function Onboarding2() {
         <Text>Edit and expand stories created by others as you play them</Text>
       </View>
       <View style={styles.playContainer}>
-        <Text style={styles.worldTitle}>Mars</Text>
+        <Text style={styles.title}>Mars</Text>
         <Text style={styles.play}>&gt; edit location</Text>
       </View>
       <View style={[styles.editContainer]}>
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   play: {
     color: "#ffffff"
   },
-  worldTitle: {
+  title: {
     fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',

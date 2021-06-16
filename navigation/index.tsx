@@ -3,8 +3,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 import Onboarding from "../screens/Onboarding";
 import HomeScreen from "../screens/HomeScreen";
-import ItemsScreen from "../screens/ItemsScreen";
+import ListWorldsScreen from "../screens/ListWorldsScreen";
 import SplashScreen from "../screens/SplashScreen";
+import PlayScreen from "../screens/PlayScreen";
 
 const Stack = createStackNavigator();
 
@@ -15,7 +16,8 @@ export default function Navigation() {
               <Stack.Screen name="Splash" component={SplashScreen} />
               <Stack.Screen name="Onboarding" component={Onboarding} />
               <Stack.Screen name="Home" component={HomeScreen} />
-              <Stack.Screen name="Items" component={ItemsScreen} />
+              <Stack.Screen name="ListWorlds" component={ListWorldsScreen} />
+              <Stack.Screen name="Play" component={PlayScreen} />
           </Stack.Navigator>
       </NavigationContainer>
   );
