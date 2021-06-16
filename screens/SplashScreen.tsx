@@ -2,35 +2,43 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import ScreenProps from "./ScreenProps";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import FadeInOut from "react-native-fade-in-out";
 
 interface SplashScreenState {
     constructTime: number
+    visible: boolean
 }
 
 export default class SplashScreen extends Component<ScreenProps, SplashScreenState> {
+
+    // animation config
+    delayBeforeFadeTime = 700
+    fadeTime = 500
+
     constructor(props: ScreenProps) {
         super(props);
         this.state = {
-            constructTime: Date.now()
+            constructTime: Date.now(),
+            visible: true
         }
     }
 
     componentDidMount() {
+        // @ts-ignore
+        let state = {constructTime: this.state.constructTime, visible: false}
+        let route = "Onboarding"
         AsyncStorage.getItem('onboardingComplete').then(value => {
             if (value !== null) {
                 // value previously stored
-                let elapsed = Date.now() - this.state.constructTime;
-                console.log("onboarding complete. It has been " + elapsed + " since construction");
-                setTimeout(() => {
-                    this.props.navigation.navigate("Home")
-                }, 1200 - elapsed);
-            } else {
-                let elapsed = Date.now() - this.state.constructTime;
-                console.log("onboarding not complete. It has been " + elapsed + " since construction");
-                setTimeout(() => {
-                    this.props.navigation.navigate("Onboarding")
-                }, 1200 - elapsed);
+                route = "Home"
             }
+            let elapsed = Date.now() - this.state.constructTime;
+            setTimeout(() => {
+                this.setState(state)
+                setTimeout(() => {
+                    this.props.navigation.navigate(route)
+                }, this.fadeTime);
+            }, this.delayBeforeFadeTime - elapsed);
         }).catch((err) => {
             // any exception including data not found
             // goes to catch()
@@ -47,19 +55,20 @@ export default class SplashScreen extends Component<ScreenProps, SplashScreenSta
             }
             let elapsed = Date.now() - this.state.constructTime;
             setTimeout(() => {
-                this.props.navigation.navigate("Home")
-            }, 1200 - elapsed);
+                this.setState(state)
+                setTimeout(() => {
+                    this.props.navigation.navigate(route)
+                }, this.fadeTime);
+            }, this.delayBeforeFadeTime - elapsed);
         })
     }
 
     render() {
         return (
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.title}>storyworlds</Text>
-                    <Text style={styles.subtitle}>collaborative interactive fiction</Text>
-                </View>
-            </View>
+            <FadeInOut visible={this.state.visible} duration={this.fadeTime} style={styles.container}>
+                <Text style={styles.title}>storyworlds</Text>
+                <Text style={styles.subtitle}>collaborative interactive fiction</Text>
+            </FadeInOut>
         );
     }
 }
