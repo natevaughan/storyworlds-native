@@ -1,5 +1,5 @@
 export default interface Navigation {
-    navigate: (route: string) => void
+    navigate: (route: string, params: any) => void
     addListener: () => void
     canGoBack: () => void
     dangerouslyGetParent: () => void

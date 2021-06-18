@@ -49,7 +49,7 @@ export default class ListWorldsScreen extends Component<ScreenProps, ListWorldsS
                     style={styles.list}
                     data={resolvedItems}
                     renderItem={({item}) => (
-                        <TouchableOpacity style={[styles.world, {backgroundColor: item.backgroundColor}]} onPress={() => this.props.navigation.navigate("Play")}>
+                        <TouchableOpacity style={[styles.world, {backgroundColor: item.backgroundColor}]} onPress={() => this.props.navigation.navigate("Play", {world: item})}>
                             <Text style={[styles.title, {color: item.foregroundColor}]}>{item.name}</Text>
                             <Text style={{color: item.foregroundColor}}>{item.description}</Text>
                         </TouchableOpacity>
