@@ -12,7 +12,6 @@ interface  HomeScreenState {
 }
 
 const HomeScreen: FC<ScreenProps> = (props: ScreenProps) => {
-    console.log(firebase.auth().currentUser)
     let additionalElements = (
         <>
             <EmailPasswordInput submitLabel="Sign up" onSubmit={createFirebaseUser} />
@@ -45,11 +44,9 @@ function createFirebaseUser(email: string, password: string) {
     firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
             // Signed in
-            console.log(userCredential.user)
-            // ...
         })
         .catch((error) => {
-            var errorCode = error.code;
+            let errorCode = error.code;
             console.warn(error.message);
             // ..
         });

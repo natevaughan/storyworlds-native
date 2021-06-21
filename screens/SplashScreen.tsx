@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import ScreenProps from "./ScreenProps";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import FadeInOut from "react-native-fade-in-out";
+import optimizelyClient from "../utils/optimizely";
 
 interface SplashScreenState {
     constructTime: number
@@ -27,18 +28,15 @@ export default class SplashScreen extends Component<ScreenProps, SplashScreenSta
         // @ts-ignore
         let state = {constructTime: this.state.constructTime, visible: false}
         let route = "Onboarding"
-        AsyncStorage.getItem('onboardingComplete').then(value => {
-            if (value !== null) {
+
+        let optimizelyPromise = optimizelyClient.onReady();
+        let storagePromise = AsyncStorage.getItem('onboardingComplete')
+
+        Promise.all([storagePromise, optimizelyPromise]).then(resolved => {
+            if (resolved[0] !== null) {
                 // value previously stored
                 route = "Home"
             }
-            let elapsed = Date.now() - this.state.constructTime;
-            setTimeout(() => {
-                this.setState(state)
-                setTimeout(() => {
-                    this.props.navigation.navigate(route)
-                }, this.fadeTime);
-            }, this.delayBeforeFadeTime - elapsed);
         }).catch((err) => {
             // any exception including data not found
             // goes to catch()
@@ -53,14 +51,16 @@ export default class SplashScreen extends Component<ScreenProps, SplashScreenSta
                     // TODO
                     break;
             }
-            let elapsed = Date.now() - this.state.constructTime;
-            setTimeout(() => {
-                this.setState(state)
-                setTimeout(() => {
-                    this.props.navigation.navigate(route)
-                }, this.fadeTime);
-            }, this.delayBeforeFadeTime - elapsed);
         })
+
+        let elapsed = Date.now() - this.state.constructTime;
+        console.log("Initialized app in " + elapsed + "ms")
+        setTimeout(() => {
+            this.setState(state)
+            setTimeout(() => {
+                this.props.navigation.navigate(route)
+            }, this.fadeTime);
+        }, this.delayBeforeFadeTime - elapsed);
     }
 
     render() {

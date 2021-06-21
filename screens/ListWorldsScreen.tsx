@@ -80,11 +80,6 @@ const ListHeader: FC = () => {
     )
 }
 
-
-function createItem() {
-    console.log("called create item")
-}
-
 let styles = {
     header: {
         fontSize: 24,

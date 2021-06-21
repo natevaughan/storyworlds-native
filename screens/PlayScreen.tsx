@@ -16,7 +16,6 @@ export default class PlayScreen extends Component<ScreenProps, PlayScreenState> 
 
     render() {
         const world = this.props.route.params.world as World;
-        console.log(world);
         return (
             <View style={[styles.headerComponent, {backgroundColor: world.backgroundColor}]}>
                 <Text style={[styles.header, {color: world.foregroundColor}]}>
