@@ -9,6 +9,7 @@ import EmailPasswordInput from "../components/UsernamePasswordInput";
 import { containers } from "../styles/Containers";
 import { colors } from "../styles/Colors";
 import { text } from "../styles/Text";
+import WeatherWidget from "../components/WeatherWidget";
 
 interface  HomeScreenState {
     items?: Array<TestItem>
@@ -40,6 +41,7 @@ const HomeScreen: FC<ScreenProps> = (props: ScreenProps) => {
             <Text style={[text.lg, containers.mx4]}>collaborative interactive fiction</Text>
             {additionalElements}
             <Button title="(Clear onboarding preference)" onPress={() => { AsyncStorage.removeItem('onboardingComplete').catch(err => console.warn(err.message))}} />
+            <WeatherWidget />
         </View>
     );
 }
