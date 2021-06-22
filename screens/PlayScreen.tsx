@@ -1,8 +1,10 @@
 import * as React from "react";
 import { Component } from "react";
-import { Text, View } from "react-native";
+import { Text, TextStyle, View, ViewStyle } from "react-native";
 import World from "../model/World";
 import ScreenProps from "./ScreenProps";
+import { containers } from "../styles/Containers";
+import { text } from "../styles/Text";
 
 interface PlayScreenState {
 
@@ -16,39 +18,20 @@ export default class PlayScreen extends Component<ScreenProps, PlayScreenState> 
 
     render() {
         const world = this.props.route.params.world as World;
+        const bgColor: ViewStyle = { backgroundColor: world.backgroundColor }
+        const textColor: TextStyle = { color: world.foregroundColor }
         return (
-            <View style={[styles.main, {backgroundColor: world.backgroundColor}]}>
-                <Text style={[styles.header, {color: world.foregroundColor}]}>
+            <View style={[containers.centeredX, bgColor]}>
+                <Text style={[text.xxl, containers.mt4, textColor]}>
                     {world.name}
                 </Text>
-                <Text style={[styles.description, styles.alignLeft, {color: world.foregroundColor}]}>
+                <Text style={[text.lg, text.left, textColor]}>
                     {world.description}
                 </Text>
-                <Text style={[styles.alignLeft, styles.wFull, {color: world.foregroundColor}]}>
+                <Text style={[text.left, containers.wFull, text.left, textColor]}>
                     &gt;
                 </Text>
             </View>
         );
-    }
-}
-
-let styles = {
-    header: {
-        fontSize: 24,
-    },
-    description: {
-        fontSize: 16,
-    },
-    wFull: {
-        width: "100%",
-    },
-    alignLeft: {
-        textAlign: "left",
-    },
-    main: {
-        paddingTop: 20,
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'top',
     }
 }

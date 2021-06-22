@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { containers } from "../styles/Containers";
 
 export default function Onboarding2() {
   return (
-    <View style={styles.container}>
+    <View style={containers.centered}>
       <View style={styles.info}>
         <Text>Edit and expand stories created by others as you play them</Text>
       </View>
@@ -34,10 +35,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
   },
   subtitle: {
     fontSize: 18,

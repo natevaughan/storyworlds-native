@@ -9,17 +9,11 @@ import { StyleSheet } from "react-native";
 
 const Onboarding: FC<ScreenProps> = (props: ScreenProps) => {
     return (
-        <Swiper style={styles.wrapper} showsButtons={true} loop={false}>
+        <Swiper showsButtons={true} loop={false}>
             <Onboarding1 />
             <Onboarding2 />
             <Onboarding3 navigation={props.navigation} />
         </Swiper>
     );
 }
-
-
-const styles = StyleSheet.create({
-    wrapper: {}
-})
-
 export default Onboarding;

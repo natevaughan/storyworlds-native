@@ -8,6 +8,7 @@ import firebase from "firebase";
 import EmailPasswordInput from "../components/UsernamePasswordInput";
 import { containers } from "../styles/Containers";
 import { colors } from "../styles/Colors";
+import { text } from "../styles/Text";
 
 interface  HomeScreenState {
     items?: Array<TestItem>
@@ -20,36 +21,23 @@ const HomeScreen: FC<ScreenProps> = (props: ScreenProps) => {
         </>
     )
 
-    let styles = StyleSheet.create({
-        main: {
-            ...containers.container,
-        },
-        title: containers.title,
-        subtitle: containers.subtitle,
-        bigButton: containers.bigButton,
-        bigButtonText: containers.bigButtonText,
-        success: colors.backgroundSuccess,
-        neutral: colors.backgroundNeutral,
-        buttonText: colors.textBackground
-    });
-
     if (firebase.auth().currentUser) {
         additionalElements = (
             <>
-                <TouchableOpacity style={[styles.bigButton, styles.success]} onPress={() => { props.navigation.navigate("ListWorlds") }}>
-                    <Text style={[styles.bigButtonText, styles.buttonText]}>browse all storyworlds</Text>
+                <TouchableOpacity style={[containers.buttonXl, colors.bgSuccess]} onPress={() => { props.navigation.navigate("ListWorlds") }}>
+                    <Text style={[text.lg, colors.textBg]}>browse all storyworlds</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={[styles.bigButton, styles.neutral]} onPress={() => { props.navigation.navigate("ListWorlds") }}>
-                    <Text style={[styles.bigButtonText, styles.buttonText]}>create new storyworld</Text>
+                <TouchableOpacity style={[containers.buttonXl, colors.bgNeutral]} onPress={() => { props.navigation.navigate("ListWorlds") }}>
+                    <Text style={[text.lg, colors.textBg]}>create new storyworld</Text>
                 </TouchableOpacity>
             </>
         )
     }
 
     return (
-        <View style={styles.main}>
-            <Text style={styles.title}>storyworlds</Text>
-            <Text style={styles.subtitle}>collaborative interactive fiction</Text>
+        <View style={containers.centered}>
+            <Text style={text.xxxl}>storyworlds</Text>
+            <Text style={[text.lg, containers.mx4]}>collaborative interactive fiction</Text>
             {additionalElements}
             <Button title="(Clear onboarding preference)" onPress={() => { AsyncStorage.removeItem('onboardingComplete').catch(err => console.warn(err.message))}} />
         </View>

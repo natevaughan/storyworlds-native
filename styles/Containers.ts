@@ -1,6 +1,14 @@
+import { ViewStyle } from "react-native";
+
+/**
+ * Abstraction for padding, alignment
+ */
 class Containers {
 
-    get container (): any {
+    /**
+     * Views
+     */
+    get centered (): ViewStyle {
         return {
             marginTop: 20,
             flex: 1,
@@ -9,24 +17,25 @@ class Containers {
         }
     }
 
-    get title (): any {
+    get centeredX (): ViewStyle {
         return {
-            fontSize: 40,
-            fontWeight: 'bold',
-            textAlign: 'center',
+            flex: 1,
+            alignItems: 'center',
         }
     }
 
-    get subtitle (): any {
+    get separator (): ViewStyle {
         return {
-            marginTop: 10,
-            marginBottom: 30,
-            fontSize: 18,
-            textAlign: 'center',
+            marginVertical: 30,
+            height: 1,
+            width: '80%',
         }
     }
 
-    get bigButton (): any {
+    /**
+     * Buttons
+     */
+    get buttonXl (): ViewStyle {
         return {
             marginBottom: 15,
             padding: 30,
@@ -34,9 +43,61 @@ class Containers {
         }
     }
 
-    get bigButtonText (): any {
+    /**
+     * Padding
+     */
+    get p2 (): ViewStyle {
         return {
-            fontSize: 18,
+            padding: 10
+        }
+    }
+
+    /**
+     * Margin
+     */
+    get mt2 (): ViewStyle {
+        return {
+            marginTop: 10,
+        }
+    }
+
+
+    get mt4 (): ViewStyle {
+        return {
+            marginTop: 20,
+        }
+    }
+
+    get mb2 (): ViewStyle {
+        return {
+            marginBottom: 10,
+        }
+    }
+
+
+    get mb4 (): ViewStyle {
+        return {
+            marginBottom: 20,
+        }
+    }
+
+    get mx2 (): ViewStyle {
+        return {
+            marginTop: 10,
+            marginBottom: 10,
+        }
+    }
+
+    get mx4 (): ViewStyle {
+        return {
+            marginTop: 20,
+            marginBottom: 20,
+        }
+    }
+
+    get wFull (): ViewStyle {
+        return {
+            width: '100%'
         }
     }
 }

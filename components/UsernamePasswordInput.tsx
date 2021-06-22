@@ -1,5 +1,8 @@
 import React, { FC, useState } from "react";
-import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity } from "react-native";
+import { SafeAreaView, Text, TextInput, TouchableOpacity } from "react-native";
+import { forms } from "../styles/Forms";
+import { containers } from "../styles/Containers";
+import { colors } from "../styles/Colors";
 
 interface UsernamePasswordInputProps {
     submitLabel?: string
@@ -13,20 +16,20 @@ const UsernamePasswordInput: FC<UsernamePasswordInputProps> = (props: UsernamePa
     return (
         <SafeAreaView>
             <TextInput
-                style={styles.input}
+                style={forms.input}
                 onChangeText={onEmailChange}
                 placeholder="username"
                 value={email}
                 keyboardType="email-address"
             />
             <TextInput
-                style={styles.input}
+                style={forms.input}
                 onChangeText={onPasswordChange}
                 placeholder="password"
                 secureTextEntry={true}
                 value={password}
             />
-            <TouchableOpacity style={styles.submitButton} onPress={() => {props.onSubmit(email, password)}}>
+            <TouchableOpacity style={[containers.buttonXl, colors.bgSuccess, colors.textBg]} onPress={() => {props.onSubmit(email, password)}}>
                 <Text>{props.submitLabel || "submit"}</Text>
             </TouchableOpacity>
         </SafeAreaView>
@@ -34,16 +37,3 @@ const UsernamePasswordInput: FC<UsernamePasswordInputProps> = (props: UsernamePa
 };
 
 export default UsernamePasswordInput;
-
-const styles = StyleSheet.create({
-    input: {
-        margin: 12,
-        borderWidth: 1,
-        padding: 10,
-        minWidth: 150,
-    },
-    submitButton: {
-        padding: 20,
-        backgroundColor: "#cccccc"
-    }
-});

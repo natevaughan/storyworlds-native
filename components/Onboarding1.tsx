@@ -1,11 +1,13 @@
 import React, { FC } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { containers } from "../styles/Containers";
+import { text } from "../styles/Text";
 
 const Onboarding1: FC = () => {
     return (
-        <View style={styles.container}>
+        <View style={containers.centered}>
             <View>
-                <Text style={styles.title}>welcome</Text>
+                <Text style={text.xxxl}>welcome</Text>
             </View>
             <View style={styles.info}>
                 <Text>play interactive, text-based stories</Text>

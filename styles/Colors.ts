@@ -1,12 +1,13 @@
 import optimizelyClient from "../utils/optimizely";
 import { auth } from "../components/firebase/firebase";
 import { pSBC } from "../utils/pSBC";
+import { TextStyle, ViewProps, ViewStyle } from "react-native";
 
 // proof of concept stylesheet
 class Colors {
 
     // defaults to be overridden by Optimizely
-    private readonly _pallette = {
+    private readonly _palette = {
         background_color: "#ffffff",
         foreground_color: "#111111",
         success_color: "#33AA33",
@@ -20,63 +21,68 @@ class Colors {
             const userContext = optimizelyClient.createUserContext(user.uid);
             const overrides = userContext.decide('color_mode').variables;
             // overwrite defaults with experimental vars from Optimizely
-            this._pallette = Object.assign(this._pallette, overrides)
+            this._palette = Object.assign(this._palette, overrides)
         }
     }
 
     get foreground (): string {
-        return this._pallette.foreground_color
+        return this._palette.foreground_color
     }
 
     get background (): string {
-        return this._pallette.foreground_color
+        return this._palette.foreground_color
     }
 
     get success (): string {
-        return this._pallette.success_color
+        return this._palette.success_color
     }
 
     get warning (): string {
-        return this._pallette.warning_color
+        return this._palette.warning_color
     }
 
     get neutral (): string {
-        return this._pallette.neutral_color
+        return this._palette.neutral_color
     }
-
-    get backgroundSuccess (): any {
+    get bgDefault (): ViewStyle {
         return {
-            backgroundColor: this._pallette.success_color
+            backgroundColor: this._palette.background_color
+        }
+    };
+
+    get bgSuccess (): ViewStyle {
+        return {
+            backgroundColor: this._palette.success_color
         }
     }
 
-    get backgroundWarning (): any {
+    get bgWarning (): ViewStyle {
         return {
-            backgroundColor: this._pallette.warning_color
+            backgroundColor: this._palette.warning_color
         }
     }
 
-    get backgroundNeutral (): any {
+    get bgNeutral (): ViewStyle {
         return {
-            backgroundColor: this._pallette.neutral_color
+            backgroundColor: this._palette.neutral_color
         }
     }
 
-    get textForeground (): any {
+    get textDefault (): TextStyle {
         return {
-            color: this._pallette.foreground_color
+            color: this._palette.foreground_color
         }
     }
 
-    get textBackground (): any {
+    get textBg (): TextStyle {
         return {
-            color: this._pallette.background_color
+            color: this._palette.background_color
         }
     }
 
-    get textLight (): any {
+    get textLight (): TextStyle {
         return {
-            color: pSBC(0.42, this._pallette.foreground_color) || this._pallette.foreground_color
+            color: pSBC(0.42, this._palette.foreground_color) || this._palette.foreground_color
         }
     }
 }

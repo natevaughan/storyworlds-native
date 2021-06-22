@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import { StyleSheet, Text } from "react-native";
+import { Text } from "react-native";
 import ScreenProps from "./ScreenProps";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import FadeInOut from "react-native-fade-in-out";
 import optimizelyClient from "../utils/optimizely";
+import { text } from "../styles/Text";
+import { containers } from "../styles/Containers";
 
 interface SplashScreenState {
     constructTime: number
@@ -65,29 +67,10 @@ export default class SplashScreen extends Component<ScreenProps, SplashScreenSta
 
     render() {
         return (
-            <FadeInOut visible={this.state.visible} duration={this.fadeTime} style={styles.container}>
-                <Text style={styles.title}>storyworlds</Text>
-                <Text style={styles.subtitle}>collaborative interactive fiction</Text>
+            <FadeInOut visible={this.state.visible} duration={this.fadeTime} style={containers.centered}>
+                <Text style={text.xxxl}>storyworlds</Text>
+                <Text style={[text.lg, containers.mx4]}>collaborative interactive fiction</Text>
             </FadeInOut>
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    title: {
-        fontSize: 40,
-        fontWeight: 'bold',
-        textAlign: 'center',
-    },
-    subtitle: {
-        marginTop: 10,
-        marginBottom: 60,
-        fontSize: 18,
-        textAlign: 'center',
-    },
-});

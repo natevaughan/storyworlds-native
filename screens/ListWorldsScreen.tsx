@@ -4,6 +4,9 @@ import { db } from "../components/firebase/firebase";
 import { Button, FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import TestItem from "../model/World";
 import ScreenProps from "./ScreenProps";
+import { containers } from "../styles/Containers";
+import { text } from "../styles/Text";
+import { colors } from "../styles/Colors";
 
 interface  ListWorldsScreenState {
     loading: boolean
@@ -46,12 +49,12 @@ export default class ListWorldsScreen extends Component<ScreenProps, ListWorldsS
             return (
                 <FlatList
                     ListHeaderComponent={ListHeader}
-                    style={styles.list}
+                    style={colors.bgDefault}
                     data={resolvedItems}
                     renderItem={({item}) => (
-                        <TouchableOpacity style={[styles.world, {backgroundColor: item.backgroundColor}]} onPress={() => this.props.navigation.navigate("Play", {world: item})}>
-                            <Text style={[styles.title, {color: item.foregroundColor}]}>{item.name}</Text>
-                            <Text style={{color: item.foregroundColor}}>{item.description}</Text>
+                        <TouchableOpacity style={[containers.p2, {backgroundColor: item.backgroundColor}]} onPress={() => this.props.navigation.navigate("Play", {world: item})}>
+                            <Text style={[text.xxxl, {color: item.foregroundColor}]}>{item.name}</Text>
+                            <Text style={[text.lg, {color: item.foregroundColor}]}>{item.description}</Text>
                         </TouchableOpacity>
                     )}
                 />
@@ -74,33 +77,8 @@ export default class ListWorldsScreen extends Component<ScreenProps, ListWorldsS
 
 const ListHeader: FC = () => {
     return (
-        <View style={styles.main}>
-            <Text style={styles.header}>Items</Text>
+        <View style={containers.centered}>
+            <Text style={text.xxxl}>Items</Text>
         </View>
     )
 }
-
-let styles = StyleSheet.create({
-    header: {
-        fontSize: 24,
-        color: "#f9f9f9",
-        marginBottom: 10,
-    },
-    world: {
-        padding: 10,
-    },
-    title: {
-        fontSize: 16,
-        fontWeight: "bold",
-        marginBottom: 8,
-    },
-    main: {
-        marginTop: 20,
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    list: {
-        backgroundColor: "#111111",
-    }
-});
