@@ -6,7 +6,8 @@ import ScreenProps from "./ScreenProps";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import firebase from "firebase";
 import EmailPasswordInput from "../components/UsernamePasswordInput";
-import { buttons } from "../styles/Buttons";
+import { containers } from "../styles/Containers";
+import { colors } from "../styles/Colors";
 
 interface  HomeScreenState {
     items?: Array<TestItem>
@@ -21,23 +22,25 @@ const HomeScreen: FC<ScreenProps> = (props: ScreenProps) => {
 
     let styles = StyleSheet.create({
         main: {
-            ...buttons.container,
-            ...buttons.background,
+            ...containers.container,
         },
-        title: buttons.title,
-        subtitle: buttons.subtitle,
-        bigButton: buttons.bigButton,
-        bigButtonText: buttons.bigButtonText,
+        title: containers.title,
+        subtitle: containers.subtitle,
+        bigButton: containers.bigButton,
+        bigButtonText: containers.bigButtonText,
+        success: colors.backgroundSuccess,
+        neutral: colors.backgroundNeutral,
+        buttonText: colors.textBackground
     });
 
     if (firebase.auth().currentUser) {
         additionalElements = (
             <>
-                <TouchableOpacity style={[styles.bigButton, {backgroundColor: "#096605"}]} onPress={() => { props.navigation.navigate("ListWorlds") }}>
-                    <Text style={styles.bigButtonText}>browse all storyworlds</Text>
+                <TouchableOpacity style={[styles.bigButton, styles.success]} onPress={() => { props.navigation.navigate("ListWorlds") }}>
+                    <Text style={[styles.bigButtonText, styles.buttonText]}>browse all storyworlds</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={[styles.bigButton, {backgroundColor: "#090566"}]} onPress={() => { props.navigation.navigate("ListWorlds") }}>
-                    <Text style={styles.bigButtonText}>create new storyworld</Text>
+                <TouchableOpacity style={[styles.bigButton, styles.neutral]} onPress={() => { props.navigation.navigate("ListWorlds") }}>
+                    <Text style={[styles.bigButtonText, styles.buttonText]}>create new storyworld</Text>
                 </TouchableOpacity>
             </>
         )
