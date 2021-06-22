@@ -1,8 +1,8 @@
 import * as React from 'react';
-import Navigation from "./navigation";
+import RootStackNavigation from "./navigation";
 
 function App() {
-  return Navigation();
+  return RootStackNavigation();
 }
 
 export default App;

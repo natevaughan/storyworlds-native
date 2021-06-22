@@ -1,5 +1,5 @@
 import optimizelyClient from "../utils/optimizely";
-import { auth } from "../components/firebase/firebase";
+import { auth } from "../utils/firebase";
 import { pSBC } from "../utils/pSBC";
 import { TextStyle, ViewProps, ViewStyle } from "react-native";
 

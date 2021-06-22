@@ -1,6 +1,6 @@
 import * as React from "react";
 import { FC } from "react";
-import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Button, Text, TouchableOpacity, View } from "react-native";
 import TestItem from "../model/World";
 import ScreenProps from "./ScreenProps";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -9,7 +9,7 @@ import EmailPasswordInput from "../components/UsernamePasswordInput";
 import { containers } from "../styles/Containers";
 import { colors } from "../styles/Colors";
 import { text } from "../styles/Text";
-import WeatherWidget from "../components/WeatherWidget";
+import ActivityWidget from "../components/ActivityWidget";
 
 interface  HomeScreenState {
     items?: Array<TestItem>
@@ -28,7 +28,7 @@ const HomeScreen: FC<ScreenProps> = (props: ScreenProps) => {
                 <TouchableOpacity style={[containers.buttonXl, colors.bgSuccess]} onPress={() => { props.navigation.navigate("ListWorlds") }}>
                     <Text style={[text.lg, colors.textBg]}>browse all storyworlds</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={[containers.buttonXl, colors.bgNeutral]} onPress={() => { props.navigation.navigate("ListWorlds") }}>
+                <TouchableOpacity style={[containers.buttonXl, colors.bgNeutral]} onPress={() => { props.navigation.navigate("CreateWorldModal") }}>
                     <Text style={[text.lg, colors.textBg]}>create new storyworld</Text>
                 </TouchableOpacity>
             </>
@@ -41,7 +41,7 @@ const HomeScreen: FC<ScreenProps> = (props: ScreenProps) => {
             <Text style={[text.lg, containers.mx4]}>collaborative interactive fiction</Text>
             {additionalElements}
             <Button title="(Clear onboarding preference)" onPress={() => { AsyncStorage.removeItem('onboardingComplete').catch(err => console.warn(err.message))}} />
-            <WeatherWidget />
+            <ActivityWidget />
         </View>
     );
 }

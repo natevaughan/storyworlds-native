@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Component, FC } from "react";
-import { db } from "../components/firebase/firebase";
+import { db } from "../utils/firebase";
 import { Button, FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import TestItem from "../model/World";
 import ScreenProps from "./ScreenProps";
@@ -54,7 +54,8 @@ export default class ListWorldsScreen extends Component<ScreenProps, ListWorldsS
                     renderItem={({item}) => (
                         <TouchableOpacity style={[containers.p2, {backgroundColor: item.backgroundColor}]} onPress={() => this.props.navigation.navigate("Play", {world: item})}>
                             <Text style={[text.xxxl, {color: item.foregroundColor}]}>{item.name}</Text>
-                            <Text style={[text.lg, {color: item.foregroundColor}]}>{item.description}</Text>
+                            <Text style={[text.xl, {color: item.foregroundColor}]}>{item.description}</Text>
+                            <Text style={[text.lg, {color: item.foregroundColor}]}>by user_{item.userId}</Text>
                         </TouchableOpacity>
                     )}
                 />

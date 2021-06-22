@@ -60,7 +60,7 @@ export default class SplashScreen extends Component<ScreenProps, SplashScreenSta
         setTimeout(() => {
             this.setState(state)
             setTimeout(() => {
-                this.props.navigation.navigate(route)
+                this.props.navigation.navigate('Main', { screen: route })
             }, this.fadeTime);
         }, this.delayBeforeFadeTime - elapsed);
     }
