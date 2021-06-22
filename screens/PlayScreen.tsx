@@ -17,7 +17,7 @@ export default class PlayScreen extends Component<ScreenProps, PlayScreenState> 
     render() {
         const world = this.props.route.params.world as World;
         return (
-            <View style={[styles.headerComponent, {backgroundColor: world.backgroundColor}]}>
+            <View style={[styles.main, {backgroundColor: world.backgroundColor}]}>
                 <Text style={[styles.header, {color: world.foregroundColor}]}>
                     {world.name}
                 </Text>
@@ -45,7 +45,7 @@ let styles = {
     alignLeft: {
         textAlign: "left",
     },
-    headerComponent: {
+    main: {
         paddingTop: 20,
         flex: 1,
         alignItems: 'center',

@@ -1,11 +1,12 @@
 import * as React from "react";
 import { FC } from "react";
-import { Button, Text, TouchableOpacity, View } from "react-native";
+import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import TestItem from "../model/World";
 import ScreenProps from "./ScreenProps";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import firebase from "firebase";
 import EmailPasswordInput from "../components/UsernamePasswordInput";
+import { buttons } from "../styles/Buttons";
 
 interface  HomeScreenState {
     items?: Array<TestItem>
@@ -17,6 +18,18 @@ const HomeScreen: FC<ScreenProps> = (props: ScreenProps) => {
             <EmailPasswordInput submitLabel="Sign up" onSubmit={createFirebaseUser} />
         </>
     )
+
+    let styles = StyleSheet.create({
+        main: {
+            ...buttons.container,
+            ...buttons.background,
+        },
+        title: buttons.title,
+        subtitle: buttons.subtitle,
+        bigButton: buttons.bigButton,
+        bigButtonText: buttons.bigButtonText,
+    });
+
     if (firebase.auth().currentUser) {
         additionalElements = (
             <>
@@ -31,7 +44,7 @@ const HomeScreen: FC<ScreenProps> = (props: ScreenProps) => {
     }
 
     return (
-        <View style={styles.headerComponent}>
+        <View style={styles.main}>
             <Text style={styles.title}>storyworlds</Text>
             <Text style={styles.subtitle}>collaborative interactive fiction</Text>
             {additionalElements}
@@ -53,32 +66,3 @@ function createFirebaseUser(email: string, password: string) {
 }
 
 export default HomeScreen;
-
-let styles = {
-    headerComponent: {
-        marginTop: 20,
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    title: {
-        fontSize: 40,
-        fontWeight: 'bold',
-        textAlign: 'center',
-    },
-    subtitle: {
-        marginTop: 10,
-        marginBottom: 30,
-        fontSize: 18,
-        textAlign: 'center',
-    },
-    bigButton: {
-        marginBottom: 15,
-        padding: 30,
-        borderRadius: 15,
-    },
-    bigButtonText: {
-        color: "#ffffff",
-        fontSize: 18,
-    }
-}

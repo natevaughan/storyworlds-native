@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Component, FC } from "react";
 import { db } from "../components/firebase/firebase";
-import { Button, FlatList, Text, TouchableOpacity, View } from "react-native";
+import { Button, FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import TestItem from "../model/World";
 import ScreenProps from "./ScreenProps";
 
@@ -74,13 +74,13 @@ export default class ListWorldsScreen extends Component<ScreenProps, ListWorldsS
 
 const ListHeader: FC = () => {
     return (
-        <View style={styles.headerComponent}>
+        <View style={styles.main}>
             <Text style={styles.header}>Items</Text>
         </View>
     )
 }
 
-let styles = {
+let styles = StyleSheet.create({
     header: {
         fontSize: 24,
         color: "#f9f9f9",
@@ -94,7 +94,7 @@ let styles = {
         fontWeight: "bold",
         marginBottom: 8,
     },
-    headerComponent: {
+    main: {
         marginTop: 20,
         flex: 1,
         alignItems: 'center',
@@ -103,4 +103,4 @@ let styles = {
     list: {
         backgroundColor: "#111111",
     }
-}
+});
