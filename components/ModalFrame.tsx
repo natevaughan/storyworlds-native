@@ -11,8 +11,8 @@ interface ModalFrameProps extends ScreenProps {
 const ModalFrame: FC<ModalFrameProps> = (props: ModalFrameProps) => {
     return (
         <View>
-            <TouchableOpacity style={[position.mt4, {flexDirection: "row", justifyContent: "flex-end", minHeight: 40 }]} onPress={() => {props.navigation.goBack()}}>
-                <Close style={position.mr4} />
+            <TouchableOpacity style={[position.mt4, position.px2, position.pr4, {flexDirection: "row", justifyContent: "flex-end", minHeight: 40 }]} onPress={() => {props.navigation.goBack()}}>
+                <Close />
             </TouchableOpacity>
             {props.children}
         </View>

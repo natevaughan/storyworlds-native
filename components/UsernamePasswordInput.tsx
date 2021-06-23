@@ -3,6 +3,7 @@ import { SafeAreaView, Text, TextInput, TouchableOpacity } from "react-native";
 import { forms } from "../styles/Forms";
 import { containers } from "../styles/Containers";
 import { colors } from "../styles/Colors";
+import { position } from "../styles/Positioning";
 
 interface UsernamePasswordInputProps {
     submitLabel?: string
@@ -29,7 +30,7 @@ const UsernamePasswordInput: FC<UsernamePasswordInputProps> = (props: UsernamePa
                 secureTextEntry={true}
                 value={password}
             />
-            <TouchableOpacity style={[containers.buttonXl, colors.bgSuccess, colors.textBg]} onPress={() => {props.onSubmit(email, password)}}>
+            <TouchableOpacity style={[containers.buttonXl, position.mx2, colors.bgSuccess, colors.textBg]} onPress={() => {props.onSubmit(email, password)}}>
                 <Text>{props.submitLabel || "submit"}</Text>
             </TouchableOpacity>
         </SafeAreaView>

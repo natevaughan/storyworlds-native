@@ -26,10 +26,10 @@ const HomeScreen: FC<ScreenProps> = (props: ScreenProps) => {
     if (firebase.auth().currentUser) {
         additionalElements = (
             <>
-                <TouchableOpacity style={[containers.buttonXl, colors.bgSuccess]} onPress={() => { props.navigation.navigate("ListWorlds") }}>
+                <TouchableOpacity style={[containers.buttonXl, position.mx2, colors.bgSuccess]} onPress={() => { props.navigation.navigate("ListWorlds") }}>
                     <Text style={[text.lg, colors.textBg]}>browse all storyworlds</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={[containers.buttonXl, colors.bgNeutral]} onPress={() => { props.navigation.navigate("CreateWorldModal") }}>
+                <TouchableOpacity style={[containers.buttonXl, position.mx2, colors.bgNeutral]} onPress={() => { props.navigation.navigate("CreateWorldModal") }}>
                     <Text style={[text.lg, colors.textBg]}>create new storyworld</Text>
                 </TouchableOpacity>
             </>

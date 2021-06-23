@@ -1,12 +1,13 @@
 import { ViewStyle } from "react-native";
+import { atom1 } from "./Constants";
 
 class Forms {
     get input(): ViewStyle {
         return {
-            margin: 12,
+            margin: atom1,
             borderWidth: 1,
-            padding: 10,
-            minWidth: 150,
+            padding: atom1,
+            minWidth: atom1 * 12,
         }
     }
 }

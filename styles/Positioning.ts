@@ -23,6 +23,58 @@ class Position {
         padding: atom1
     }
 
+    p4: ViewStyle = {
+        padding: atom2
+    }
+
+    pt2: ViewStyle = {
+        paddingTop: atom1,
+    }
+
+    pt4: ViewStyle = {
+        paddingTop: atom2,
+    }
+
+    pb2: ViewStyle = {
+        paddingBottom: atom1,
+    }
+
+    pb4: ViewStyle = {
+        paddingBottom: atom2,
+    }
+
+    pl2: ViewStyle = {
+        paddingLeft: atom1,
+    }
+
+    pl4: ViewStyle = {
+        paddingLeft: atom2,
+    }
+
+    pr2: ViewStyle = {
+        paddingRight: atom1,
+    }
+
+    pr4: ViewStyle = {
+        paddingRight: atom2,
+    }
+
+    px2: ViewStyle = {
+        paddingVertical: atom1,
+    }
+
+    px4: ViewStyle = {
+        paddingVertical: atom2,
+    }
+
+    py2: ViewStyle = {
+        paddingHorizontal: atom1,
+    }
+
+    py4: ViewStyle = {
+        paddingHorizontal: atom2,
+    }
+
     /**
      * Margin
      */
