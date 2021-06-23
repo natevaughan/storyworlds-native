@@ -1,16 +1,18 @@
 import React, { FC, useEffect, useState } from "react";
 import { Text } from "react-native";
+import { getActivity } from "../api/ActivityApi";
 
 const ActivityWidget: FC = () => {
     const [data, setData] = useState(undefined)
 
     useEffect(() => {
-        fetch("https://www.boredapi.com/api/activity")
-            .then(res => {
-                res.json().then((d) => {
-                    setData(d)
-                })
-            })
+        getActivity().then(d => {
+            if (d) {
+                setData(d)
+            }
+        }).catch(err => {
+            console.warn(err)
+        })
     }, [])
 
     if (data) {
