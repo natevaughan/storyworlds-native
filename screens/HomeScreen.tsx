@@ -11,6 +11,7 @@ import { colors } from "../styles/Colors";
 import { text } from "../styles/Text";
 import ActivityWidget from "../components/ActivityWidget";
 import { position } from "../styles/Positioning";
+import LocationWidget from "../components/LocationWidget";
 
 interface  HomeScreenState {
     items?: Array<TestItem>
@@ -43,6 +44,7 @@ const HomeScreen: FC<ScreenProps> = (props: ScreenProps) => {
             {additionalElements}
             <Button title="(Clear onboarding preference)" onPress={() => { AsyncStorage.removeItem('onboardingComplete').catch(err => console.warn(err.message))}} />
             <ActivityWidget />
+            <LocationWidget />
         </View>
     );
 }
