@@ -1,3 +1,3 @@
 // constants
-export const two = 10
-export const four = 20
+export const atom1 = 10
+export const atom2 = atom1 * 2;

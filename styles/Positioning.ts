@@ -1,5 +1,5 @@
 import { ViewStyle } from "react-native";
-import { four, two } from "./Constants";
+import { atom2, atom1 } from "./Constants";
 
 /**
  * Atomic constants for composing padding, alignment
@@ -20,67 +20,67 @@ class Position {
      * Padding
      */
     p2: ViewStyle = {
-        padding: two
+        padding: atom1
     }
 
     /**
      * Margin
      */
     m2: ViewStyle = {
-        margin: two
+        margin: atom1
     }
 
     m4: ViewStyle = {
-        margin: four
+        margin: atom2
     }
 
     mt2: ViewStyle = {
-        marginTop: two,
+        marginTop: atom1,
     }
 
 
     mt4: ViewStyle = {
-        marginTop: four,
+        marginTop: atom2,
     }
 
     mb2: ViewStyle = {
-        marginBottom: two,
+        marginBottom: atom1,
     }
 
     mb4: ViewStyle = {
-        marginBottom: four,
+        marginBottom: atom2,
     }
 
     ml2: ViewStyle = {
-        marginLeft: two,
+        marginLeft: atom1,
     }
 
     ml4: ViewStyle = {
-        marginLeft: four,
+        marginLeft: atom2,
     }
 
     mr2: ViewStyle = {
-        marginRight: two,
+        marginRight: atom1,
     }
 
     mr4: ViewStyle = {
-        marginRight: four,
+        marginRight: atom2,
     }
 
     mx2: ViewStyle = {
-        marginVertical: two,
+        marginVertical: atom1,
     }
 
     mx4: ViewStyle = {
-        marginVertical: four,
+        marginVertical: atom2,
     }
 
     my2: ViewStyle = {
-        marginHorizontal: two,
+        marginHorizontal: atom1,
     }
 
     my4: ViewStyle = {
-        marginHorizontal: four,
+        marginHorizontal: atom2,
     }
 }
 

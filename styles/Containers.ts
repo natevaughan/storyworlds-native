@@ -1,5 +1,5 @@
 import { ViewStyle } from "react-native";
-import { four } from "./Constants";
+import { atom2 } from "./Constants";
 
 /**
  * Composed containers
@@ -7,7 +7,7 @@ import { four } from "./Constants";
 class Containers {
 
     screen: ViewStyle = {
-        marginTop: four,
+        marginTop: atom2,
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
