@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { containers } from "../styles/Containers";
 import { text } from "../styles/Text";
+import { containers } from "../styles/Containers";
 
 const Onboarding1: FC = () => {
     return (
-        <View style={containers.centered}>
+        <View style={containers.screen}>
             <View>
                 <Text style={text.xxxl}>welcome</Text>
             </View>

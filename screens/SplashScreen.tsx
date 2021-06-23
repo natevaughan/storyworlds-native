@@ -6,6 +6,7 @@ import FadeInOut from "react-native-fade-in-out";
 import optimizelyClient from "../utils/optimizely";
 import { text } from "../styles/Text";
 import { containers } from "../styles/Containers";
+import { position } from "../styles/Positioning";
 
 interface SplashScreenState {
     constructTime: number
@@ -67,9 +68,9 @@ export default class SplashScreen extends Component<ScreenProps, SplashScreenSta
 
     render() {
         return (
-            <FadeInOut visible={this.state.visible} duration={this.fadeTime} style={containers.centered}>
+            <FadeInOut visible={this.state.visible} duration={this.fadeTime} style={containers.screen}>
                 <Text style={text.xxxl}>storyworlds</Text>
-                <Text style={[text.lg, containers.mx4]}>collaborative interactive fiction</Text>
+                <Text style={[text.lg, position.mx4]}>collaborative interactive fiction</Text>
             </FadeInOut>
         );
     }

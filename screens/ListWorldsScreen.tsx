@@ -7,6 +7,7 @@ import ScreenProps from "./ScreenProps";
 import { containers } from "../styles/Containers";
 import { text } from "../styles/Text";
 import { colors } from "../styles/Colors";
+import { position } from "../styles/Positioning";
 
 interface  ListWorldsScreenState {
     loading: boolean
@@ -52,7 +53,7 @@ export default class ListWorldsScreen extends Component<ScreenProps, ListWorldsS
                     style={colors.bgDefault}
                     data={resolvedItems}
                     renderItem={({item}) => (
-                        <TouchableOpacity style={[containers.p2, {backgroundColor: item.backgroundColor}]} onPress={() => this.props.navigation.navigate("Play", {world: item})}>
+                        <TouchableOpacity style={[position.p2, {backgroundColor: item.backgroundColor}]} onPress={() => this.props.navigation.navigate("Play", {world: item})}>
                             <Text style={[text.xxxl, {color: item.foregroundColor}]}>{item.name}</Text>
                             <Text style={[text.xl, {color: item.foregroundColor}]}>{item.description}</Text>
                             <Text style={[text.lg, {color: item.foregroundColor}]}>by user_{item.userId}</Text>
@@ -78,7 +79,7 @@ export default class ListWorldsScreen extends Component<ScreenProps, ListWorldsS
 
 const ListHeader: FC = () => {
     return (
-        <View style={containers.centered}>
+        <View style={containers.screen}>
             <Text style={text.xxxl}>Items</Text>
         </View>
     )

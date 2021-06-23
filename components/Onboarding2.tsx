@@ -4,7 +4,7 @@ import { containers } from "../styles/Containers";
 
 export default function Onboarding2() {
   return (
-    <View style={containers.centered}>
+    <View style={containers.screen}>
       <View style={styles.info}>
         <Text>Edit and expand stories created by others as you play them</Text>
       </View>

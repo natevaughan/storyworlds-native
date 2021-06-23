@@ -9,7 +9,7 @@ import ScreenProps from "../screens/ScreenProps";
 
 const Onboarding3: FC<ScreenProps> = (props: ScreenProps) => {
     return (
-      <View style={containers.centered}>
+      <View style={containers.screen}>
         <Text style={text.lg}>Get started</Text>
         <View style={[containers.separator, colors.bgDefault]}/>
         <TouchableOpacity

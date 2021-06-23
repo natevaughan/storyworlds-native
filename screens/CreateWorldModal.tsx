@@ -7,7 +7,7 @@ import { text } from "../styles/Text";
 const CreateWorldModal: FC<ScreenProps> = (props: ScreenProps) => {
     return (
         <ModalFrame {...props} >
-            <Text style={[text.xl]}>hello, world</Text>
+            <Text style={[text.xxl, text.center]}>Create new storyworld</Text>
         </ModalFrame>
     )
 }
