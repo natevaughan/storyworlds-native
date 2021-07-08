@@ -1,10 +1,20 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import ScreenProps from "../../navigation/ScreenProps";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import firebase from "firebase";
 import HomeView from "./HomeView";
+import { currentlyPlaying } from "../../redux/stores";
+import World from "../../model/World";
+
 
 const HomeViewPresenter: FC<ScreenProps> = (props: ScreenProps) => {
+
+    let [cp, setCp] = useState<World | undefined>(currentlyPlaying.getState())
+    currentlyPlaying.subscribe(() => {
+        console.log("setting cp to " + JSON.stringify(currentlyPlaying.getState()))
+        setCp(currentlyPlaying.getState())
+    })
+
     return <HomeView
         currentUser={firebase.auth().currentUser}
         clearOnboarding={clearOnboarding}
@@ -15,6 +25,7 @@ const HomeViewPresenter: FC<ScreenProps> = (props: ScreenProps) => {
             props.navigation.navigate("CreateWorld")
         }}
         createFirebaseUser={createFirebaseUser}
+        currentlyPlaying={cp}
     />
 }
 

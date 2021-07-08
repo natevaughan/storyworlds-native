@@ -6,6 +6,7 @@ import { position } from "../../styles/Positioning";
 import { colors } from "../../styles/Colors";
 import { text } from "../../styles/Text";
 import LocationWidget from "../../components/LocationWidget";
+import World from "../../model/World";
 
 interface HomeViewProps {
     currentUser: any | null
@@ -13,6 +14,7 @@ interface HomeViewProps {
     goToListWorlds: () => void
     goToCreateWorld: () => void
     createFirebaseUser: (email: string, password: string) => void
+    currentlyPlaying: World | undefined
 }
 
 const HomeView: FC<HomeViewProps> = (props: HomeViewProps) => {
@@ -46,6 +48,7 @@ const HomeView: FC<HomeViewProps> = (props: HomeViewProps) => {
             <Text style={text.xxxl}>storyworlds</Text>
             <Text style={[text.lg, position.mx4]}>collaborative interactive fiction</Text>
             {additionalElements}
+            <Text>Currently playing: {props.currentlyPlaying?.name || "none"}</Text>
             <Button title="(Clear onboarding preference)" onPress={props.clearOnboarding} />
             <LocationWidget />
         </View>

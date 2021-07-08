@@ -4,6 +4,8 @@ import { db } from "../../utils/firebase";
 import World from "../../model/World";
 import ScreenProps from "../../navigation/ScreenProps";
 import ListWorldsView from "./ListWorldsView";
+import { currentlyPlaying } from "../../redux/stores";
+import { CURRENTLY_PLAYING } from "../../redux/actions";
 
 const ListWorldsViewPresenter: FC<ScreenProps> = (props: ScreenProps) => {
 
@@ -28,6 +30,7 @@ const ListWorldsViewPresenter: FC<ScreenProps> = (props: ScreenProps) => {
 
 
     function playWorld(world: World) {
+        currentlyPlaying.dispatch({type: CURRENTLY_PLAYING, currentlyPlaying: world })
         props.navigation.navigate("Play", {world: world})
     }
 
