@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { text } from "../styles/Text";
-import { containers } from "../styles/Containers";
+import { text } from "../../styles/Text";
+import { containers } from "../../styles/Containers";
 
-const Onboarding1: FC = () => {
+const Onboarding1View: FC = () => {
     return (
         <View style={containers.screen}>
             <View>
@@ -21,7 +21,7 @@ const Onboarding1: FC = () => {
     );
 }
 
-export default Onboarding1;
+export default Onboarding1View;
 
 const styles = StyleSheet.create({
     container: {

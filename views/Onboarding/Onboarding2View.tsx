@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { containers } from "../styles/Containers";
+import { containers } from "../../styles/Containers";
 
-export default function Onboarding2() {
+export default function Onboarding2View() {
   return (
     <View style={containers.screen}>
       <View style={styles.info}>

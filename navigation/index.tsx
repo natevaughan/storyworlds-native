@@ -1,12 +1,12 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
-import Onboarding from "../screens/Onboarding";
-import HomeScreen from "../screens/HomeScreen";
-import ListWorldsScreen from "../screens/ListWorldsScreen";
-import SplashScreen from "../screens/SplashScreen";
-import PlayScreen from "../screens/PlayScreen";
-import CreateWorldScreen from "../screens/CreateWorldModal";
+import OnboardingViewPresenter from "../views/Onboarding/OnboardingViewPresenter";
+import HomeViewPresenter from "../views/Home/HomeViewPresenter";
+import ListWorldsViewPresenter from "../views/ListWorlds/ListWorldsViewPresenter";
+import SplashViewPresenter from "../views/Splash/SplashViewPresenter";
+import PlayViewPresenter from "../views/Play/PlayViewPresenter";
+import CreateWorldScreen from "../views/CreateWorld/CreateWorldViewPresenter";
 
 const MainStack = createStackNavigator();
 const RootStack = createStackNavigator();
@@ -14,11 +14,11 @@ const RootStack = createStackNavigator();
 export function MainNavigation() {
     return (
         <MainStack.Navigator headerMode={'none'} initialRouteName="Splash">
-            <RootStack.Screen name="Splash" component={SplashScreen}/>
-            <MainStack.Screen name="Onboarding" component={Onboarding}/>
-            <MainStack.Screen name="Home" component={HomeScreen}/>
-            <MainStack.Screen name="ListWorlds" component={ListWorldsScreen}/>
-            <MainStack.Screen name="Play" component={PlayScreen}/>
+            <RootStack.Screen name="Splash" component={SplashViewPresenter}/>
+            <MainStack.Screen name="Onboarding" component={OnboardingViewPresenter}/>
+            <MainStack.Screen name="Home" component={HomeViewPresenter}/>
+            <MainStack.Screen name="ListWorlds" component={ListWorldsViewPresenter}/>
+            <MainStack.Screen name="Play" component={PlayViewPresenter}/>
         </MainStack.Navigator>
     );
 }
